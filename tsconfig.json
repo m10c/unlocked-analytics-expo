@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "api-read-hook": ["./src/index"]
+      "unlocked-analytics-expo": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
