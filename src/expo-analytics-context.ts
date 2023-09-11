@@ -1,20 +1,17 @@
-import Constants from 'expo-constants';
+import * as Application from 'expo-application';
 import * as Device from 'expo-device';
 import * as Localization from 'expo-localization';
 import { Dimensions, PixelRatio, Platform } from 'react-native';
 
 import packageJson from '../package.json';
 
-const { manifest } = Constants;
-
 const expoAnalyticsContext = {
   app: {
-    name: manifest.name,
-    version: Constants.nativeAppVersion || undefined,
-    build: Constants.nativeBuildVersion?.toString(),
+    name: Application.applicationName || '',
+    version: Application.nativeApplicationVersion || undefined,
+    build: Application.nativeBuildVersion?.toString(),
   },
   device: {
-    id: Constants.deviceId,
     manufacturer: Device.manufacturer || undefined,
     model: Device.modelId || Device.modelName,
   },
@@ -33,7 +30,7 @@ const expoAnalyticsContext = {
     height: Dimensions.get('screen').height,
     width: Dimensions.get('screen').width,
   },
-  timezone: Localization.timezone,
+  timezone: Localization.getCalendars()[0].timeZone,
 };
 
 export default expoAnalyticsContext;
