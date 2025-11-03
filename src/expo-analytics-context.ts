@@ -19,7 +19,7 @@ const expoAnalyticsContext = {
     name: 'unlocked-analytics-expo',
     version: packageJson.version,
   },
-  locale: Localization.locale,
+  locale: Localization.getLocales()[0].languageTag,
   os: {
     name: Platform.OS,
     version: Platform.Version,
