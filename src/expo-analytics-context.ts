@@ -2,8 +2,10 @@ import * as Application from 'expo-application';
 import * as Device from 'expo-device';
 import * as Localization from 'expo-localization';
 import { Dimensions, PixelRatio, Platform } from 'react-native';
-
-import packageJson from '../package.json';
+// Needed for Expo Web
+let packageJson;
+try { packageJson = require('../package.json'); }
+catch (err) { packageJson = require('../../package.json'); }
 
 const expoAnalyticsContext = {
   app: {
